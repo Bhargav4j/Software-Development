@@ -1,0 +1,35 @@
+@page
+@model TourManagement.Web.Pages.Bookings.DeleteModel
+@{
+    ViewData["Title"] = "Delete Booking";
+}
+
+<h1>Delete Booking</h1>
+
+<h3>Are you sure you want to delete this booking?</h3>
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-5">Booking ID</dt>
+            <dd class="col-sm-7">@Model.Booking?.Id</dd>
+
+            <dt class="col-sm-5">User Email</dt>
+            <dd class="col-sm-7">@Model.Booking?.User.Email</dd>
+
+            <dt class="col-sm-5">Tour Name</dt>
+            <dd class="col-sm-7">@Model.Booking?.Tour.TourName</dd>
+
+            <dt class="col-sm-5">Booking Date</dt>
+            <dd class="col-sm-7">@Model.Booking?.BookingDate.ToString("MMMM dd, yyyy")</dd>
+
+            <dt class="col-sm-5">Total Amount</dt>
+            <dd class="col-sm-7">$@Model.Booking?.TotalAmount.ToString("N2")</dd>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="Booking!.Id" />
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

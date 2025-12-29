@@ -1,0 +1,46 @@
+@page
+@model TourManagement.Web.Pages.Tours.DetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<h1>Tour Details</h1>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="card">
+            @if (!string.IsNullOrEmpty(Model.Tour?.Pic))
+            {
+                <img src="~/images/@Model.Tour.Pic" class="card-img-top" alt="@Model.Tour.TourName" style="max-height: 400px; object-fit: cover;">
+            }
+            <div class="card-body">
+                <h2 class="card-title">@Model.Tour?.TourName</h2>
+
+                <dl class="row">
+                    <dt class="col-sm-3">Place</dt>
+                    <dd class="col-sm-9">@Model.Tour?.Place</dd>
+
+                    <dt class="col-sm-3">Days</dt>
+                    <dd class="col-sm-9">@Model.Tour?.Days</dd>
+
+                    <dt class="col-sm-3">Price</dt>
+                    <dd class="col-sm-9">$@Model.Tour?.Price.ToString("N2")</dd>
+
+                    <dt class="col-sm-3">Locations</dt>
+                    <dd class="col-sm-9">@Model.Tour?.Locations</dd>
+
+                    <dt class="col-sm-3">Tour Info</dt>
+                    <dd class="col-sm-9">@Model.Tour?.TourInfo</dd>
+
+                    <dt class="col-sm-3">Created Date</dt>
+                    <dd class="col-sm-9">@Model.Tour?.CreatedDate.ToString("MMMM dd, yyyy")</dd>
+                </dl>
+
+                <div class="mt-3">
+                    <a asp-page="Edit" asp-route-id="@Model.Tour?.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

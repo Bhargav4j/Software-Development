@@ -1,0 +1,30 @@
+@page
+@model TourManagement.Web.Pages.Users.DetailsModel
+@{
+    ViewData["Title"] = "User Details";
+}
+
+<h1>User Details</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-4">Email</dt>
+            <dd class="col-sm-8">@Model.User?.Email</dd>
+
+            <dt class="col-sm-4">Name</dt>
+            <dd class="col-sm-8">@Model.User?.Name</dd>
+
+            <dt class="col-sm-4">Phone</dt>
+            <dd class="col-sm-8">@Model.User?.Phone</dd>
+
+            <dt class="col-sm-4">Is Admin</dt>
+            <dd class="col-sm-8">@(Model.User?.IsAdmin == true ? "Yes" : "No")</dd>
+
+            <dt class="col-sm-4">Created Date</dt>
+            <dd class="col-sm-8">@Model.User?.CreatedDate.ToString("MMMM dd, yyyy")</dd>
+        </dl>
+
+        <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>

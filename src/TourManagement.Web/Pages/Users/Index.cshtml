@@ -1,0 +1,40 @@
+@page
+@model TourManagement.Web.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+<h1>Users</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Email</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Is Admin</th>
+            <th>Created Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.Users)
+        {
+            <tr>
+                <td>@user.Email</td>
+                <td>@user.Name</td>
+                <td>@user.Phone</td>
+                <td>@(user.IsAdmin ? "Yes" : "No")</td>
+                <td>@user.CreatedDate.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-page="Details" asp-route-id="@user.Id" class="btn btn-sm btn-info">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Users.Any())
+{
+    <div class="alert alert-info">No users available.</div>
+}

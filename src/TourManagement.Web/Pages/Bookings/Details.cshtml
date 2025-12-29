@@ -1,0 +1,39 @@
+@page
+@model TourManagement.Web.Pages.Bookings.DetailsModel
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<h1>Booking Details</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <dl class="row">
+            <dt class="col-sm-5">Booking ID</dt>
+            <dd class="col-sm-7">@Model.Booking?.Id</dd>
+
+            <dt class="col-sm-5">User Email</dt>
+            <dd class="col-sm-7">@Model.Booking?.User.Email</dd>
+
+            <dt class="col-sm-5">Tour Name</dt>
+            <dd class="col-sm-7">@Model.Booking?.Tour.TourName</dd>
+
+            <dt class="col-sm-5">Booking Date</dt>
+            <dd class="col-sm-7">@Model.Booking?.BookingDate.ToString("MMMM dd, yyyy")</dd>
+
+            <dt class="col-sm-5">Number of People</dt>
+            <dd class="col-sm-7">@Model.Booking?.NumberOfPeople</dd>
+
+            <dt class="col-sm-5">Total Amount</dt>
+            <dd class="col-sm-7">$@Model.Booking?.TotalAmount.ToString("N2")</dd>
+
+            <dt class="col-sm-5">Status</dt>
+            <dd class="col-sm-7">@Model.Booking?.Status</dd>
+
+            <dt class="col-sm-5">Created Date</dt>
+            <dd class="col-sm-7">@Model.Booking?.CreatedDate.ToString("MMMM dd, yyyy")</dd>
+        </dl>
+
+        <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+    </div>
+</div>
