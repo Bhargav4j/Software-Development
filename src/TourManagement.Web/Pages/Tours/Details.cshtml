@@ -1,0 +1,50 @@
+@page "{id:int}"
+@model TourManagement.Web.Pages.Tours.DetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<div class="container">
+    @if (Model.Tour != null)
+    {
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h1>@Model.Tour.TourName</h1>
+
+                @if (!string.IsNullOrEmpty(Model.Tour.PictureFileName))
+                {
+                    <img src="~/uploads/tours/@Model.Tour.PictureFileName" class="img-fluid mb-3" alt="@Model.Tour.TourName">
+                }
+
+                <dl class="row">
+                    <dt class="col-sm-3">Place</dt>
+                    <dd class="col-sm-9">@Model.Tour.Place</dd>
+
+                    <dt class="col-sm-3">Days</dt>
+                    <dd class="col-sm-9">@Model.Tour.Days</dd>
+
+                    <dt class="col-sm-3">Price</dt>
+                    <dd class="col-sm-9">$@Model.Tour.Price</dd>
+
+                    <dt class="col-sm-3">Locations</dt>
+                    <dd class="col-sm-9">@Model.Tour.Locations</dd>
+
+                    <dt class="col-sm-3">Information</dt>
+                    <dd class="col-sm-9">@Model.Tour.TourInfo</dd>
+
+                    <dt class="col-sm-3">Created Date</dt>
+                    <dd class="col-sm-9">@Model.Tour.CreatedDate.ToString("yyyy-MM-dd")</dd>
+                </dl>
+
+                <div class="mb-3">
+                    <a asp-page="Edit" asp-route-id="@Model.Tour.Id" class="btn btn-warning">Edit</a>
+                    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p class="text-danger">Tour not found.</p>
+    }
+</div>

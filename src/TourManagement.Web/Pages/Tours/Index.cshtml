@@ -1,0 +1,53 @@
+@page
+@model TourManagement.Web.Pages.Tours.IndexModel
+@{
+    ViewData["Title"] = "Tours";
+}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col-md-12">
+            <h1>Available Tours</h1>
+            <a asp-page="Create" class="btn btn-primary">Add New Tour</a>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model.Tours != null && Model.Tours.Any())
+        {
+            @foreach (var tour in Model.Tours)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card tour-card">
+                        @if (!string.IsNullOrEmpty(tour.PictureFileName))
+                        {
+                            <img src="~/uploads/tours/@tour.PictureFileName" class="card-img-top tour-image" alt="@tour.TourName">
+                        }
+                        else
+                        {
+                            <img src="https://via.placeholder.com/300x200?text=@tour.TourName" class="card-img-top tour-image" alt="@tour.TourName">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@tour.TourName</h5>
+                            <p class="card-text"><strong>Place:</strong> @tour.Place</p>
+                            <p class="card-text"><strong>Days:</strong> @tour.Days</p>
+                            <p class="card-text"><strong>Price:</strong> $@tour.Price</p>
+                            <p class="card-text">@tour.TourInfo</p>
+                            <div class="btn-group" role="group">
+                                <a asp-page="Details" asp-route-id="@tour.Id" class="btn btn-info btn-sm">Details</a>
+                                <a asp-page="Edit" asp-route-id="@tour.Id" class="btn btn-warning btn-sm">Edit</a>
+                                <a asp-page="Delete" asp-route-id="@tour.Id" class="btn btn-danger btn-sm">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-md-12">
+                <p class="text-muted">No tours available.</p>
+            </div>
+        }
+    </div>
+</div>
