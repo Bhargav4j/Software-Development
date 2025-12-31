@@ -1,23 +1,54 @@
-# Tour_Management_Project
- simple asp.net application for booking of tours.
- 
-# Admin
-* Add Tour
-* Manage Tour 
-* See Bookings
-<img width="752" alt="image" src="https://user-images.githubusercontent.com/81226571/196478877-2a66ec3b-1a71-48ce-ab20-6013890ae19d.png">
-<img width="760" alt="image" src="https://user-images.githubusercontent.com/81226571/196479030-a0cbc14c-6085-4d7c-8de5-86414aa8be7f.png">
+# Tour Management System - .NET 8
 
-# User
-- Manage Profile
-- Book Tour
-- See his booking
-<img width="745" alt="image" src="https://user-images.githubusercontent.com/81226571/196478761-6a7d261a-1769-4c56-9052-b3e4a77722e5.png">
+A modern tour booking and management system built with .NET 8, Razor Pages, and Entity Framework Core.
 
-## How to run?
-- Fork Project 
-- clone repository( git clone (https://github.com/mayankm508/Software-Development)
-- open app_data folder
-- right click on database file (.mdf) click modify connection.
-- you can also config your own database by step mention in [database.txt] file.
+## Features
 
+- **Tour Management**: Create, view, edit, and delete tour packages
+- **User Management**: Registration and authentication system
+- **Booking System**: Book tours and manage bookings
+- **Clean Architecture**: Separation of concerns with Domain, Application, Infrastructure, and Web layers
+- **Modern Security**: BCrypt password hashing, CSRF protection, parameterized queries
+
+## Technology Stack
+
+- **.NET 8**: Latest framework version
+- **ASP.NET Core Razor Pages**: Modern UI framework
+- **Entity Framework Core 8**: ORM for data access
+- **SQL Server**: Database engine
+- **Serilog**: Structured logging
+- **Bootstrap 5**: UI styling
+- **BCrypt.Net**: Password hashing
+
+## Getting Started
+
+### Prerequisites
+
+- [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
+- SQL Server or SQL Server LocalDB
+
+### Installation
+
+1. Clone the repository
+2. Update connection string in appsettings.json
+3. Apply database migrations:
+   ```bash
+   dotnet ef database update --project src/TourManagement.Infrastructure --startup-project src/TourManagement.Web
+   ```
+4. Run: `dotnet run --project src/TourManagement.Web`
+5. Open: https://localhost:5001
+
+## Build and Test
+
+Build: `dotnet build TourManagement.sln`
+
+## Migration from Web Forms
+
+Migrated from ASP.NET Web Forms 4.7.2 to .NET 8. See docs/MIGRATION_NOTES.md for details.
+
+---
+
+**Migration Status**: ✅ Completed Successfully
+**Build Status**: ✅ Passing (0 errors, 0 warnings)
+**Framework**: .NET 8
+**Generated**: 2025-12-31

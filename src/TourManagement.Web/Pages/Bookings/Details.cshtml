@@ -1,0 +1,43 @@
+@page "{id:int}"
+@model TourManagement.Web.Pages.Bookings.DetailsModel
+@{
+    ViewData["Title"] = "Booking Details";
+}
+
+<h1>Booking Details</h1>
+
+@if (Model.Booking != null)
+{
+    <div>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">Booking ID:</dt>
+            <dd class="col-sm-9">@Model.Booking.BookingId</dd>
+
+            <dt class="col-sm-3">Tour Name:</dt>
+            <dd class="col-sm-9">@Model.Booking.TourName</dd>
+
+            <dt class="col-sm-3">Place:</dt>
+            <dd class="col-sm-9">@Model.Booking.Place</dd>
+
+            <dt class="col-sm-3">Customer Name:</dt>
+            <dd class="col-sm-9">@Model.Booking.FirstName</dd>
+
+            <dt class="col-sm-3">Email:</dt>
+            <dd class="col-sm-9">@Model.Booking.Email</dd>
+
+            <dt class="col-sm-3">Booking Date:</dt>
+            <dd class="col-sm-9">@Model.Booking.BookingDate.ToString("yyyy-MM-dd HH:mm")</dd>
+        </dl>
+
+        <div>
+            <a asp-page="Delete" asp-route-id="@Model.Booking.BookingId" class="btn btn-danger">Cancel Booking</a>
+            <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">Booking not found.</div>
+    <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+}

@@ -1,0 +1,16 @@
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/TourManagement.Application.csproj.AssemblyReference.cache
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/TourManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/TourManagement.Application.AssemblyInfoInputs.cache
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/TourManagement.Application.AssemblyInfo.cs
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/TourManagement.Application.csproj.CoreCompileInputs.cache
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/TourManagement.Application.sourcelink.json
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/bin/Debug/net8.0/TourManagement.Application.deps.json
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/bin/Debug/net8.0/TourManagement.Application.dll
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/bin/Debug/net8.0/TourManagement.Application.pdb
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/bin/Debug/net8.0/TourManagement.Domain.dll
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/bin/Debug/net8.0/TourManagement.Domain.pdb
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/TourMana.F28DA9BD.Up2Date
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/TourManagement.Application.dll
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/refint/TourManagement.Application.dll
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/TourManagement.Application.pdb
+/modernize-data/studio-data/TNT1001/APP2685/transformed-code/828/studio-workspace/softwarecomp/src/TourManagement.Application/obj/Debug/net8.0/ref/TourManagement.Application.dll
