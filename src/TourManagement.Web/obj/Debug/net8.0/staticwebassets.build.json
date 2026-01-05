@@ -1,0 +1,58 @@
+{
+  "Version": 1,
+  "Hash": "xdCJEHoryVChTxTvIH7+ykhDPQuNsbd+DjNzUUs3spc=",
+  "Source": "TourManagement.Web",
+  "BasePath": "_content/TourManagement.Web",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "TourManagement.Web/wwwroot",
+      "Source": "TourManagement.Web",
+      "ContentRoot": "/modernize-data/studio-data/TNT1001/APP2725/transformed-code/863/studio-workspace/Softwarecompp/src/TourManagement.Web/wwwroot/",
+      "BasePath": "_content/TourManagement.Web",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "/modernize-data/studio-data/TNT1001/APP2725/transformed-code/863/studio-workspace/Softwarecompp/src/TourManagement.Web/wwwroot/css/site.css",
+      "SourceId": "TourManagement.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/modernize-data/studio-data/TNT1001/APP2725/transformed-code/863/studio-workspace/Softwarecompp/src/TourManagement.Web/wwwroot/",
+      "BasePath": "_content/TourManagement.Web",
+      "RelativePath": "css/site.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/site.css"
+    },
+    {
+      "Identity": "/modernize-data/studio-data/TNT1001/APP2725/transformed-code/863/studio-workspace/Softwarecompp/src/TourManagement.Web/wwwroot/js/site.js",
+      "SourceId": "TourManagement.Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "/modernize-data/studio-data/TNT1001/APP2725/transformed-code/863/studio-workspace/Softwarecompp/src/TourManagement.Web/wwwroot/",
+      "BasePath": "_content/TourManagement.Web",
+      "RelativePath": "js/site.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/site.js"
+    }
+  ]
+}
