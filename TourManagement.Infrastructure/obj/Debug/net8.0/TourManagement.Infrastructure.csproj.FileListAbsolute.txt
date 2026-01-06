@@ -18,3 +18,8 @@
 /modernize-data/studio-data/TNT1001/APP2771/transformed-code/906/studio-workspace/SoftwareDevelopwithdb07/TourManagement.Infrastructure/obj/Debug/net8.0/TourManagement.Infrastructure.pdb
 /modernize-data/studio-data/TNT1001/APP2771/transformed-code/906/studio-workspace/SoftwareDevelopwithdb07/TourManagement.Infrastructure/obj/Debug/net8.0/TourManagement.Infrastructure.genruntimeconfig.cache
 /modernize-data/studio-data/TNT1001/APP2771/transformed-code/906/studio-workspace/SoftwareDevelopwithdb07/TourManagement.Infrastructure/obj/Debug/net8.0/ref/TourManagement.Infrastructure.dll
+/modernize-data/studio-data/TNT1001/APP2771/transformed-code/906/studio-workspace/SoftwareDevelopwithdb07/TourManagement.Infrastructure/bin/Debug/net8.0/TourManagement.Domain.deps.json
+/modernize-data/studio-data/TNT1001/APP2771/transformed-code/906/studio-workspace/SoftwareDevelopwithdb07/TourManagement.Infrastructure/bin/Debug/net8.0/TourManagement.Domain.runtimeconfig.json
+/modernize-data/studio-data/TNT1001/APP2771/transformed-code/906/studio-workspace/SoftwareDevelopwithdb07/TourManagement.Infrastructure/bin/Debug/net8.0/xunit.runner.visualstudio.dotnetcore.testadapter.dll
+/modernize-data/studio-data/TNT1001/APP2771/transformed-code/906/studio-workspace/SoftwareDevelopwithdb07/TourManagement.Infrastructure/bin/Debug/net8.0/xunit.runner.reporters.netcoreapp10.dll
+/modernize-data/studio-data/TNT1001/APP2771/transformed-code/906/studio-workspace/SoftwareDevelopwithdb07/TourManagement.Infrastructure/bin/Debug/net8.0/xunit.runner.utility.netcoreapp10.dll

@@ -1,4 +1,4 @@
-
+﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TourManagement.Infrastructure", "TourManagement.Infrastructure\TourManagement.Infrastructure.csproj", "{A3333333-3333-3333-3333-333333333333}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TourManagement.Web", "TourManagement.Web\TourManagement.Web.csproj", "{A4444444-4444-4444-4444-444444444444}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{0A54BFA5-F822-4DF4-88FE-74735EE775D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,5 +35,9 @@ Global
 		{A4444444-4444-4444-4444-444444444444}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4444444-4444-4444-4444-444444444444}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4444444-4444-4444-4444-444444444444}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A54BFA5-F822-4DF4-88FE-74735EE775D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A54BFA5-F822-4DF4-88FE-74735EE775D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A54BFA5-F822-4DF4-88FE-74735EE775D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A54BFA5-F822-4DF4-88FE-74735EE775D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
