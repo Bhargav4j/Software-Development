@@ -1,0 +1,50 @@
+@page
+@model TourManagement.Web.Pages.Users.DashboardModel
+@{
+    ViewData["Title"] = "User Dashboard";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Welcome, @Model.UserName!</h2>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">My Bookings</h5>
+                <p class="card-text">View and manage your tour bookings.</p>
+                <a asp-page="/Bookings/MyBookings" class="btn btn-primary">View Bookings</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Browse Tours</h5>
+                <p class="card-text">Explore available tour packages.</p>
+                <a asp-page="/Tours/Index" class="btn btn-primary">Browse Tours</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">My Profile</h5>
+                <p class="card-text">Update your personal information.</p>
+                <a asp-page="/Users/Profile" class="btn btn-primary">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-3">
+    <div class="col-md-12">
+        <form method="post" asp-page-handler="Logout">
+            <button type="submit" class="btn btn-danger">Logout</button>
+        </form>
+    </div>
+</div>
