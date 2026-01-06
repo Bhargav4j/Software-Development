@@ -1,0 +1,61 @@
+@page
+@model TourManagement.Web.Pages.Tours.IndexModel
+@{
+    ViewData["Title"] = "Tours";
+}
+
+<div class="container">
+    <div class="row mb-3">
+        <div class="col">
+            <h1>Available Tours</h1>
+        </div>
+        <div class="col text-end">
+            @if (HttpContext.Session.GetString("AdminUsername") != null)
+            {
+                <a asp-page="Create" class="btn btn-primary">Add New Tour</a>
+            }
+        </div>
+    </div>
+
+    @if (Model.Tours != null && Model.Tours.Any())
+    {
+        <div class="row">
+            @foreach (var tour in Model.Tours)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        @if (!string.IsNullOrEmpty(tour.PicturePath))
+                        {
+                            <img src="~/images/tours/@tour.PicturePath" class="card-img-top" alt="@tour.TourName" style="height: 200px; object-fit: cover;">
+                        }
+                        <div class="card-body">
+                            <h5 class="card-title">@tour.TourName</h5>
+                            <p class="card-text"><strong>Place:</strong> @tour.Place</p>
+                            <p class="card-text"><strong>Days:</strong> @tour.Days</p>
+                            <p class="card-text"><strong>Price:</strong> $@tour.Price</p>
+                            <p class="card-text"><small>@tour.TourInfo</small></p>
+                        </div>
+                        <div class="card-footer">
+                            <a asp-page="Details" asp-route-id="@tour.Id" class="btn btn-sm btn-info">Details</a>
+                            @if (HttpContext.Session.GetString("UserEmail") != null)
+                            {
+                                <a asp-page="/Bookings/Create" asp-route-tourId="@tour.Id" class="btn btn-sm btn-success">Book Now</a>
+                            }
+                            @if (HttpContext.Session.GetString("AdminUsername") != null)
+                            {
+                                <a asp-page="Edit" asp-route-id="@tour.Id" class="btn btn-sm btn-warning">Edit</a>
+                                <a asp-page="Delete" asp-route-id="@tour.Id" class="btn btn-sm btn-danger">Delete</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            No tours available at the moment.
+        </div>
+    }
+</div>

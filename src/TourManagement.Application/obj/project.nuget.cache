@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "3hIK8dK9ElE=",
+  "success": true,
+  "projectFilePath": "/modernize-data/studio-data/TNT1001/APP2762/transformed-code/900/studio-workspace/Software-Development/src/TourManagement.Application/TourManagement.Application.csproj",
+  "expectedPackageFiles": [
+    "/home/studioai/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/home/studioai/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
+    "/home/studioai/.nuget/packages/fluentvalidation/11.9.0/fluentvalidation.11.9.0.nupkg.sha512",
+    "/home/studioai/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
+    "/home/studioai/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/home/studioai/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

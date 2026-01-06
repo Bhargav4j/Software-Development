@@ -1,0 +1,73 @@
+@page
+@model TourManagement.Web.Pages.Users.RegisterModel
+@{
+    ViewData["Title"] = "User Registration";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">User Registration</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="RegisterInput.FullName" class="form-label"></label>
+                            <input asp-for="RegisterInput.FullName" class="form-control" />
+                            <span asp-validation-for="RegisterInput.FullName" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RegisterInput.Email" class="form-label"></label>
+                            <input asp-for="RegisterInput.Email" class="form-control" />
+                            <span asp-validation-for="RegisterInput.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RegisterInput.Password" class="form-label"></label>
+                            <input asp-for="RegisterInput.Password" class="form-control" type="password" />
+                            <span asp-validation-for="RegisterInput.Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RegisterInput.ConfirmPassword" class="form-label"></label>
+                            <input asp-for="RegisterInput.ConfirmPassword" class="form-control" type="password" />
+                            <span asp-validation-for="RegisterInput.ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RegisterInput.PhoneNumber" class="form-label"></label>
+                            <input asp-for="RegisterInput.PhoneNumber" class="form-control" />
+                            <span asp-validation-for="RegisterInput.PhoneNumber" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="RegisterInput.Address" class="form-label"></label>
+                            <textarea asp-for="RegisterInput.Address" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="RegisterInput.Address" class="text-danger"></span>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                        {
+                            <div class="alert alert-danger">@Model.ErrorMessage</div>
+                        }
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Register</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-3 text-center">
+                        <p>Already have an account? <a asp-page="Login">Login here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

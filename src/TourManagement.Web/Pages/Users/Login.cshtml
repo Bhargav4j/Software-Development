@@ -1,0 +1,49 @@
+@page
+@model TourManagement.Web.Pages.Users.LoginModel
+@{
+    ViewData["Title"] = "User Login";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="text-center">User Login</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="mb-3">
+                            <label asp-for="LoginInput.Email" class="form-label"></label>
+                            <input asp-for="LoginInput.Email" class="form-control" />
+                            <span asp-validation-for="LoginInput.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="LoginInput.Password" class="form-label"></label>
+                            <input asp-for="LoginInput.Password" class="form-control" type="password" />
+                            <span asp-validation-for="LoginInput.Password" class="text-danger"></span>
+                        </div>
+
+                        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+                        {
+                            <div class="alert alert-danger">@Model.ErrorMessage</div>
+                        }
+
+                        <div class="d-grid gap-2">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+
+                    <div class="mt-3 text-center">
+                        <p>Don't have an account? <a asp-page="Register">Register here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
