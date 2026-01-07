@@ -8,12 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.txt", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
 
 builder.Services.AddRazorPages();
+
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<TourManagementDbContext>();
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
@@ -58,6 +60,8 @@ app.UseRouting();
 app.UseSession();
 
 app.UseAuthorization();
+
+app.MapHealthChecks("/health");
 
 app.MapRazorPages();
 
