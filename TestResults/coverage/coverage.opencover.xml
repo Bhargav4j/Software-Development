@@ -2,9 +2,9 @@
 <CoverageSession>
   <Summary numSequencePoints="1050" visitedSequencePoints="0" numBranchPoints="264" visitedBranchPoints="0" sequenceCoverage="0" branchCoverage="0" maxCyclomaticComplexity="249" minCyclomaticComplexity="45" visitedClasses="0" numClasses="89" visitedMethods="0" numMethods="166" />
   <Modules>
-    <Module hash="7A7D6E25-C80F-430E-894D-2F54B295E823">
+    <Module hash="15BDDEAB-4F96-4AE5-A5DE-2F921A8E832C">
       <ModulePath>TourManagement.Infrastructure.dll</ModulePath>
-      <ModuleTime>2026-01-07T12:19:39</ModuleTime>
+      <ModuleTime>2026-01-07T12:40:04</ModuleTime>
       <ModuleName>TourManagement.Infrastructure</ModuleName>
       <Files>
         <File uid="1" fullPath="/modernize-data/studio-data/TNT1001/APP2798/transformed-code/927/studio-workspace/software/TourManagement/src/TourManagement.Infrastructure/Repositories/BookingRepository.cs" />
@@ -922,9 +922,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="A93EF99B-C70E-447F-9E72-749BCE7B1496">
+    <Module hash="39E3896D-F845-4D36-B162-E91EF6A0AC55">
       <ModulePath>TourManagement.Web.dll</ModulePath>
-      <ModuleTime>2026-01-07T12:19:39</ModuleTime>
+      <ModuleTime>2026-01-07T12:40:04</ModuleTime>
       <ModuleName>TourManagement.Web</ModuleName>
       <Files>
         <File uid="9" fullPath="/modernize-data/studio-data/TNT1001/APP2798/transformed-code/927/studio-workspace/software/TourManagement/src/TourManagement.Web/Program.cs" />
@@ -2315,9 +2315,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="2EF39E43-C55D-4D8E-8ECB-294258A5A4DB">
+    <Module hash="0878B6F7-737E-44B4-A621-AF70B4EC52F1">
       <ModulePath>TourManagement.Domain.dll</ModulePath>
-      <ModuleTime>2026-01-07T12:19:39</ModuleTime>
+      <ModuleTime>2026-01-07T12:40:04</ModuleTime>
       <ModuleName>TourManagement.Domain</ModuleName>
       <Files>
         <File uid="29" fullPath="/modernize-data/studio-data/TNT1001/APP2798/transformed-code/927/studio-workspace/software/TourManagement/src/TourManagement.Domain/Exceptions/NotFoundException.cs" />
@@ -2851,9 +2851,9 @@
         </Class>
       </Classes>
     </Module>
-    <Module hash="26227E2F-52D5-4730-AF8C-7D29EA722862">
+    <Module hash="07B9C378-790D-4E24-A21A-1B47D1DD6814">
       <ModulePath>TourManagement.Application.dll</ModulePath>
-      <ModuleTime>2026-01-07T12:19:39</ModuleTime>
+      <ModuleTime>2026-01-07T12:40:04</ModuleTime>
       <ModuleName>TourManagement.Application</ModuleName>
       <Files>
         <File uid="33" fullPath="/modernize-data/studio-data/TNT1001/APP2798/transformed-code/927/studio-workspace/software/TourManagement/src/TourManagement.Application/Services/BookingService.cs" />
