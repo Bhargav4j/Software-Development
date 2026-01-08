@@ -1,0 +1,56 @@
+@page "{tourId:int?}"
+@model BookingCreateModel
+@{
+    ViewData["Title"] = "Create Booking";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <h2>@ViewData["Title"]</h2>
+        <hr />
+        @if (Model.Tour != null)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Tour.TourName</h5>
+                    <p class="card-text"><strong>Place:</strong> @Model.Tour.Place</p>
+                    <p class="card-text"><strong>Days:</strong> @Model.Tour.Days</p>
+                    <p class="card-text"><strong>Price per person:</strong> $@Model.Tour.Price</p>
+                </div>
+            </div>
+        }
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @Model.ErrorMessage
+            </div>
+        }
+        <form method="post">
+            <input type="hidden" asp-for="TourId" />
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group mb-3">
+                <label asp-for="NumberOfPeople" class="form-label"></label>
+                <input asp-for="NumberOfPeople" class="form-control" type="number" min="1" />
+                <span asp-validation-for="NumberOfPeople" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Total Amount</label>
+                <p class="form-control-static"><strong>$<span id="totalAmount">0.00</span></strong></p>
+            </div>
+            <button type="submit" class="btn btn-primary">Confirm Booking</button>
+            <a asp-page="/Tours/Index" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        var pricePerPerson = @(Model.Tour?.Price ?? 0);
+        document.getElementById('NumberOfPeople').addEventListener('input', function() {
+            var numberOfPeople = parseInt(this.value) || 0;
+            var totalAmount = pricePerPerson * numberOfPeople;
+            document.getElementById('totalAmount').textContent = totalAmount.toFixed(2);
+        });
+    </script>
+}

@@ -1,0 +1,61 @@
+@page
+@model MyBookingsModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>@ViewData["Title"]</h2>
+        <hr />
+        @if (!Model.Bookings.Any())
+        {
+            <div class="alert alert-info" role="alert">
+                You have no bookings yet. <a asp-page="/Tours/Index">Browse tours</a> to make a booking.
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Tour Name</th>
+                            <th>Place</th>
+                            <th>Booking Date</th>
+                            <th>Number of People</th>
+                            <th>Total Amount</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var booking in Model.Bookings)
+                        {
+                            <tr>
+                                <td>@booking.Tour.TourName</td>
+                                <td>@booking.Tour.Place</td>
+                                <td>@booking.BookingDate.ToString("yyyy-MM-dd")</td>
+                                <td>@booking.NumberOfPeople</td>
+                                <td>$@booking.TotalAmount</td>
+                                <td>
+                                    @if (booking.Status == "Pending")
+                                    {
+                                        <span class="badge bg-warning">@booking.Status</span>
+                                    }
+                                    else if (booking.Status == "Confirmed")
+                                    {
+                                        <span class="badge bg-success">@booking.Status</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-secondary">@booking.Status</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        }
+    </div>
+</div>
