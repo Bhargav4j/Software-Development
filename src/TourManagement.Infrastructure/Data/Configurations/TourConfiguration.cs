@@ -44,7 +44,7 @@ public class TourConfiguration : IEntityTypeConfiguration<Tour>
 
         builder.Property(t => t.TourInfo)
             .IsRequired()
-            .HasColumnType("nvarchar(max)")
+            .HasColumnType("text")
             .HasColumnName("TOUR_INFO");
 
         builder.Property(t => t.PicturePath)
@@ -53,7 +53,7 @@ public class TourConfiguration : IEntityTypeConfiguration<Tour>
 
         builder.Property(t => t.CreatedDate)
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("CURRENT_TIMESTAMP");
 
         builder.Property(t => t.ModifiedDate);
 
