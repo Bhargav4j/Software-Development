@@ -59,7 +59,8 @@ public class DeleteModel : PageModel
 
             if (tour != null && !string.IsNullOrEmpty(tour.PicturePath))
             {
-                var filePath = Path.Combine(_environment.WebRootPath, "uploads", tour.PicturePath);
+                var uploadsFolder = Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? Path.Combine(_environment.WebRootPath, "uploads");
+                var filePath = Path.Combine(uploadsFolder, tour.PicturePath);
                 if (System.IO.File.Exists(filePath))
                 {
                     System.IO.File.Delete(filePath);

@@ -16,14 +16,20 @@ public static class ServiceCollectionExtensions
         this IServiceCollection services,
         IConfiguration configuration)
     {
-        services.AddDbContext<TourManagementDbContext>(options =>
+        var maxRetryCount = int.Parse(Environment.GetEnvironmentVariable("MAX_RETRY_COUNT") ?? "5");
+        var maxRetryDelaySeconds = int.Parse(Environment.GetEnvironmentVariable("MAX_RETRY_DELAY_SECONDS") ?? "30");
+
+        services.AddDbContext<TourManagementDbContext>((serviceProvider, options) =>
+        {
+            var config = serviceProvider.GetRequiredService<IConfiguration>();
             options.UseNpgsql(
                 configuration.GetConnectionString("DefaultConnection"),
                 npgsqlOptions => npgsqlOptions.EnableRetryOnFailure(
-                    maxRetryCount: 5,
-                    maxRetryDelay: TimeSpan.FromSeconds(30),
+                    maxRetryCount: maxRetryCount,
+                    maxRetryDelay: TimeSpan.FromSeconds(maxRetryDelaySeconds),
                     errorCodesToAdd: null))
-            .UseSnakeCaseNamingConvention());
+            .UseSnakeCaseNamingConvention();
+        });
 
         services.AddScoped<ITourRepository, TourRepository>();
         services.AddScoped<IUserRepository, UserRepository>();

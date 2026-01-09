@@ -122,7 +122,7 @@ public class EditModel : PageModel
 
             if (Input.Picture != null && Input.Picture.Length > 0)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
+                var uploadsFolder = Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? Path.Combine(_environment.WebRootPath, "uploads");
                 Directory.CreateDirectory(uploadsFolder);
 
                 var uniqueFileName = Guid.NewGuid().ToString() + "_" + Input.Picture.FileName;

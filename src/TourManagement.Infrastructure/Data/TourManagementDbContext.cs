@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using TourManagement.Domain.Entities;
 
 namespace TourManagement.Infrastructure.Data;
@@ -8,9 +9,12 @@ namespace TourManagement.Infrastructure.Data;
 /// </summary>
 public class TourManagementDbContext : DbContext
 {
-    public TourManagementDbContext(DbContextOptions<TourManagementDbContext> options)
+    private readonly IConfiguration? _configuration;
+
+    public TourManagementDbContext(DbContextOptions<TourManagementDbContext> options, IConfiguration? configuration = null)
         : base(options)
     {
+        _configuration = configuration;
     }
 
     public DbSet<Tour> Tours { get; set; } = null!;
@@ -21,7 +25,8 @@ public class TourManagementDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
-        modelBuilder.HasDefaultSchema("public");
+        var schema = _configuration?.GetValue<string>("Database:Schema") ?? Environment.GetEnvironmentVariable("DB_SCHEMA") ?? "public";
+        modelBuilder.HasDefaultSchema(schema);
 
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(TourManagementDbContext).Assembly);
     }

@@ -10,7 +10,6 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
     .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.log", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
@@ -18,7 +17,7 @@ builder.Host.UseSerilog();
 builder.Services.AddRazorPages();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.IdleTimeout = TimeSpan.FromMinutes(int.Parse(Environment.GetEnvironmentVariable("SESSION_TIMEOUT_MINUTES") ?? "30"));
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
 });
@@ -28,6 +27,9 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
 
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<TourManagementDbContext>();
+
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -36,7 +38,10 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-app.UseHttpsRedirection();
+if (!bool.Parse(Environment.GetEnvironmentVariable("DISABLE_HTTPS_REDIRECT") ?? "false"))
+{
+    app.UseHttpsRedirection();
+}
 app.UseStaticFiles();
 
 app.UseRouting();
@@ -45,6 +50,7 @@ app.UseSession();
 
 app.UseAuthorization();
 
+app.MapHealthChecks("/health");
 app.MapRazorPages();
 
 try

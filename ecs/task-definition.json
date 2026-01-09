@@ -1,0 +1,100 @@
+{
+  "family": "tourmanagement-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "512",
+  "memory": "1024",
+  "executionRoleArn": "arn:aws:iam::{{ACCOUNT_ID}}:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::{{ACCOUNT_ID}}:role/ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "tourmanagement",
+      "image": "{{IMAGE_URI}}",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "ASPNETCORE_ENVIRONMENT",
+          "value": "Production"
+        },
+        {
+          "name": "ASPNETCORE_URLS",
+          "value": "http://+:8080"
+        },
+        {
+          "name": "DOTNET_RUNNING_IN_CONTAINER",
+          "value": "true"
+        },
+        {
+          "name": "DOTNET_SYSTEM_GLOBALIZATION_INVARIANT",
+          "value": "false"
+        },
+        {
+          "name": "DB_HOST",
+          "value": "{{DB_HOST}}"
+        },
+        {
+          "name": "DB_PORT",
+          "value": "{{DB_PORT}}"
+        },
+        {
+          "name": "DB_NAME",
+          "value": "{{DB_NAME}}"
+        },
+        {
+          "name": "DB_USER",
+          "value": "{{DB_USER}}"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "value": "{{DB_PASSWORD}}"
+        },
+        {
+          "name": "DB_MIN_POOL_SIZE",
+          "value": "5"
+        },
+        {
+          "name": "DB_MAX_POOL_SIZE",
+          "value": "20"
+        },
+        {
+          "name": "DB_COMMAND_TIMEOUT",
+          "value": "30"
+        },
+        {
+          "name": "SESSION_TIMEOUT_MINUTES",
+          "value": "30"
+        },
+        {
+          "name": "DISABLE_HTTPS_REDIRECT",
+          "value": "false"
+        },
+        {
+          "name": "MAX_RETRY_COUNT",
+          "value": "5"
+        },
+        {
+          "name": "MAX_RETRY_DELAY_SECONDS",
+          "value": "30"
+        },
+        {
+          "name": "ALLOWED_HOSTS",
+          "value": "*"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/tourmanagement",
+          "awslogs-region": "{{AWS_REGION}}",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}

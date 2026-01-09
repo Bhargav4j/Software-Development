@@ -1,0 +1,54 @@
+# Build artifacts
+bin/
+obj/
+
+# IDE and editor files
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+*.pidb
+*.booproj
+*.swp
+*~
+.DS_Store
+
+# Test results
+TestResults/
+*.trx
+
+# NuGet
+packages/
+*.nupkg
+*.snupkg
+
+# Documentation
+*.md
+README.*
+LICENSE
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Docker
+.dockerignore
+Dockerfile*
+docker-compose*
+
+# Build output
+publish/
+*.log
+
+# Configuration overrides
+launchSettings.json
+appsettings.Development.json
+appsettings.Local.json
+
+# Sensitive data
+*.pfx
+*.p12
+*.key
+*.pem
