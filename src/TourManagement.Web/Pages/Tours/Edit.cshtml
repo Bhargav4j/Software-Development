@@ -1,0 +1,81 @@
+@page
+@model TourManagement.Web.Pages.Tours.EditModel
+@{
+    ViewData["Title"] = "Edit Tour";
+}
+
+<h1>Edit Tour</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form method="post" enctype="multipart/form-data">
+            <input type="hidden" asp-for="Input.Id" />
+            <input type="hidden" asp-for="Input.ExistingPicturePath" />
+
+            <div class="mb-3">
+                <label asp-for="Input.TourName" class="form-label"></label>
+                <input asp-for="Input.TourName" class="form-control" />
+                <span asp-validation-for="Input.TourName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.Place" class="form-label"></label>
+                <input asp-for="Input.Place" class="form-control" />
+                <span asp-validation-for="Input.Place" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="Input.Days" class="form-label"></label>
+                        <input asp-for="Input.Days" class="form-control" />
+                        <span asp-validation-for="Input.Days" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="Input.Price" class="form-label"></label>
+                        <input asp-for="Input.Price" class="form-control" />
+                        <span asp-validation-for="Input.Price" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.Locations" class="form-label"></label>
+                <input asp-for="Input.Locations" class="form-control" />
+                <span asp-validation-for="Input.Locations" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.TourInfo" class="form-label"></label>
+                <textarea asp-for="Input.TourInfo" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Input.TourInfo" class="text-danger"></span>
+            </div>
+
+            @if (!string.IsNullOrEmpty(Model.Input.ExistingPicturePath))
+            {
+                <div class="mb-3">
+                    <label class="form-label">Current Picture</label>
+                    <div>
+                        <img src="~/uploads/@Model.Input.ExistingPicturePath" alt="Current" style="max-width: 200px;" class="img-thumbnail" />
+                    </div>
+                </div>
+            }
+
+            <div class="mb-3">
+                <label asp-for="Input.Picture" class="form-label"></label>
+                <input asp-for="Input.Picture" class="form-control" type="file" accept="image/*" />
+                <span asp-validation-for="Input.Picture" class="text-danger"></span>
+                <small class="form-text text-muted">Leave empty to keep the current picture</small>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Save Changes</button>
+                <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

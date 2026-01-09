@@ -1,0 +1,65 @@
+@page
+@model TourManagement.Web.Pages.Tours.CreateModel
+@{
+    ViewData["Title"] = "Create Tour";
+}
+
+<h1>Create New Tour</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-8">
+        <form method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label asp-for="Input.TourName" class="form-label"></label>
+                <input asp-for="Input.TourName" class="form-control" />
+                <span asp-validation-for="Input.TourName" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.Place" class="form-label"></label>
+                <input asp-for="Input.Place" class="form-control" />
+                <span asp-validation-for="Input.Place" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="Input.Days" class="form-label"></label>
+                        <input asp-for="Input.Days" class="form-control" />
+                        <span asp-validation-for="Input.Days" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label asp-for="Input.Price" class="form-label"></label>
+                        <input asp-for="Input.Price" class="form-control" />
+                        <span asp-validation-for="Input.Price" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.Locations" class="form-label"></label>
+                <input asp-for="Input.Locations" class="form-control" />
+                <span asp-validation-for="Input.Locations" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.TourInfo" class="form-label"></label>
+                <textarea asp-for="Input.TourInfo" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="Input.TourInfo" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <label asp-for="Input.Picture" class="form-label"></label>
+                <input asp-for="Input.Picture" class="form-control" type="file" accept="image/*" />
+                <span asp-validation-for="Input.Picture" class="text-danger"></span>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
