@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using TourManagement.Domain.Entities;
 using TourManagement.Domain.Interfaces.Services;
 
@@ -11,12 +12,14 @@ public class EditModel : PageModel
     private readonly ITourService _tourService;
     private readonly IWebHostEnvironment _environment;
     private readonly ILogger<EditModel> _logger;
+    private readonly IConfiguration _configuration;
 
-    public EditModel(ITourService tourService, IWebHostEnvironment environment, ILogger<EditModel> logger)
+    public EditModel(ITourService tourService, IWebHostEnvironment environment, ILogger<EditModel> logger, IConfiguration configuration)
     {
         _tourService = tourService;
         _environment = environment;
         _logger = logger;
+        _configuration = configuration;
     }
 
     [BindProperty]
@@ -122,11 +125,12 @@ public class EditModel : PageModel
 
             if (Input.Picture != null && Input.Picture.Length > 0)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
-                Directory.CreateDirectory(uploadsFolder);
+                // Use environment variable for upload path (supports volume mounts or cloud storage)
+                var uploadPath = _configuration["UPLOAD_PATH"] ?? Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? Path.Combine(_environment.WebRootPath, "uploads");
+                Directory.CreateDirectory(uploadPath);
 
                 var uniqueFileName = Guid.NewGuid().ToString() + "_" + Input.Picture.FileName;
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                var filePath = Path.Combine(uploadPath, uniqueFileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
@@ -135,7 +139,7 @@ public class EditModel : PageModel
 
                 if (!string.IsNullOrEmpty(tour.PicturePath))
                 {
-                    var oldFilePath = Path.Combine(uploadsFolder, tour.PicturePath);
+                    var oldFilePath = Path.Combine(uploadPath, tour.PicturePath);
                     if (System.IO.File.Exists(oldFilePath))
                     {
                         System.IO.File.Delete(oldFilePath);

@@ -10,12 +10,21 @@ Log.Logger = new LoggerConfiguration()
     .ReadFrom.Configuration(builder.Configuration)
     .Enrich.FromLogContext()
     .WriteTo.Console()
-    .WriteTo.File("logs/tourmanagement-.log", rollingInterval: RollingInterval.Day)
     .CreateLogger();
 
 builder.Host.UseSerilog();
 
 builder.Services.AddRazorPages();
+// Configure distributed cache for session state
+var redisConnectionString = builder.Configuration.GetConnectionString("Redis") ?? Environment.GetEnvironmentVariable("REDIS_CONNECTION_STRING");
+if (!string.IsNullOrEmpty(redisConnectionString))
+{
+    builder.Services.AddStackExchangeRedisCache(options =>
+    {
+        options.Configuration = redisConnectionString;
+    });
+}
+
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -27,6 +36,10 @@ builder.Services.AddHttpContextAccessor();
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 builder.Services.AddApplicationServices();
+
+// Add health checks for container orchestration
+builder.Services.AddHealthChecks()
+    .AddDbContextCheck<TourManagementDbContext>();
 
 var app = builder.Build();
 
@@ -46,6 +59,10 @@ app.UseSession();
 app.UseAuthorization();
 
 app.MapRazorPages();
+
+// Map health check endpoints for container orchestration
+app.MapHealthChecks("/health");
+app.MapHealthChecks("/ready");
 
 try
 {

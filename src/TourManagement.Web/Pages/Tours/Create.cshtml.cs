@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
 using TourManagement.Domain.Entities;
 using TourManagement.Domain.Interfaces.Services;
 
@@ -11,12 +12,14 @@ public class CreateModel : PageModel
     private readonly ITourService _tourService;
     private readonly IWebHostEnvironment _environment;
     private readonly ILogger<CreateModel> _logger;
+    private readonly IConfiguration _configuration;
 
-    public CreateModel(ITourService tourService, IWebHostEnvironment environment, ILogger<CreateModel> logger)
+    public CreateModel(ITourService tourService, IWebHostEnvironment environment, ILogger<CreateModel> logger, IConfiguration configuration)
     {
         _tourService = tourService;
         _environment = environment;
         _logger = logger;
+        _configuration = configuration;
     }
 
     [BindProperty]
@@ -81,11 +84,12 @@ public class CreateModel : PageModel
 
             if (Input.Picture != null && Input.Picture.Length > 0)
             {
-                var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
-                Directory.CreateDirectory(uploadsFolder);
+                // Use environment variable for upload path (supports volume mounts or cloud storage)
+                var uploadPath = _configuration["UPLOAD_PATH"] ?? Environment.GetEnvironmentVariable("UPLOAD_PATH") ?? Path.Combine(_environment.WebRootPath, "uploads");
+                Directory.CreateDirectory(uploadPath);
 
                 var uniqueFileName = Guid.NewGuid().ToString() + "_" + Input.Picture.FileName;
-                var filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                var filePath = Path.Combine(uploadPath, uniqueFileName);
 
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
