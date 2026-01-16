@@ -1,0 +1,67 @@
+@page
+@model CreateBookingModel
+@{
+    ViewData["Title"] = "Book Tour";
+}
+
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <h2>Book Tour</h2>
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @Model.ErrorMessage
+            </div>
+        }
+
+        @if (Model.Tour != null)
+        {
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Tour.TourName</h5>
+                    <p class="card-text">
+                        <strong>Place:</strong> @Model.Tour.Place<br />
+                        <strong>Duration:</strong> @Model.Tour.Days days<br />
+                        <strong>Price:</strong> $@Model.Tour.Price.ToString("N2")
+                    </p>
+                </div>
+            </div>
+
+            <form method="post">
+                <input type="hidden" asp-for="TourId" />
+                <input type="hidden" asp-for="Input.TourId" />
+                <input type="hidden" asp-for="Input.TourName" />
+                <input type="hidden" asp-for="Input.Place" />
+
+                <div class="mb-3">
+                    <label asp-for="Input.Email" class="form-label"></label>
+                    <input asp-for="Input.Email" class="form-control" readonly />
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Input.FirstName" class="form-label"></label>
+                    <input asp-for="Input.FirstName" class="form-control" readonly />
+                    <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-success">Confirm Booking</button>
+                    <a asp-page="/Tour/Index" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        }
+        else
+        {
+            <div class="alert alert-warning">
+                Tour not found.
+            </div>
+            <a asp-page="/Tour/Index" class="btn btn-secondary">Back to Tours</a>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,54 @@
+@page "{id:int}"
+@model TourDetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+@if (Model.Tour != null)
+{
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>@Model.Tour.TourName</h2>
+
+            <div class="card">
+                @if (!string.IsNullOrEmpty(Model.Tour.PicturePath))
+                {
+                    <img src="~/uploads/tour-pictures/@Model.Tour.PicturePath" class="card-img-top" alt="@Model.Tour.TourName" />
+                }
+                else
+                {
+                    <img src="https://via.placeholder.com/800x400?text=Tour+Image" class="card-img-top" alt="@Model.Tour.TourName" />
+                }
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Tour.TourName</h5>
+                    <p class="card-text">
+                        <strong>Place:</strong> @Model.Tour.Place<br />
+                        <strong>Duration:</strong> @Model.Tour.Days days<br />
+                        <strong>Price:</strong> $@Model.Tour.Price.ToString("N2")<br />
+                        <strong>Locations:</strong> @Model.Tour.Locations<br />
+                        <br />
+                        <strong>Tour Information:</strong><br />
+                        @Model.Tour.TourInfo
+                    </p>
+
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <a asp-page="/Booking/Create" asp-route-tourId="@Model.Tour.TourId" class="btn btn-success">Book This Tour</a>
+                    }
+                    else
+                    {
+                        <a asp-page="/Account/Login" class="btn btn-primary">Login to Book</a>
+                    }
+                    <a asp-page="/Tour/Index" class="btn btn-secondary">Back to Tours</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        Tour not found.
+    </div>
+    <a asp-page="/Tour/Index" class="btn btn-secondary">Back to Tours</a>
+}
