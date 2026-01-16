@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "fIOvICrosIw=",
+  "success": true,
+  "projectFilePath": "/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Application/TourManagement.Application.csproj",
+  "expectedPackageFiles": [
+    "/home/studioai/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "/home/studioai/.nuget/packages/microsoft.extensions.logging.abstractions/8.0.0/microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

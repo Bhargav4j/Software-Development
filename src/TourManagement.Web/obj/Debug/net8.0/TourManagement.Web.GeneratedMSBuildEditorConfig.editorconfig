@@ -1,0 +1,83 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = TourManagement.Web
+build_property.RootNamespace = TourManagement.Web
+build_property.ProjectDir = /modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web
+build_property._RazorSourceGeneratorDebug = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Admin/CreateTour.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vQ3JlYXRlVG91ci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Admin/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vRGFzaGJvYXJkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Admin/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Admin/Tours.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQWRtaW4vVG91cnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Booking/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va2luZy9DcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Booking/MyBookings.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQm9va2luZy9NeUJvb2tpbmdzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Tour/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG91ci9EZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/Tour/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVG91ci9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/User/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlci9Mb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/User/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlci9Mb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/User/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlci9Qcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/User/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvVXNlci9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/modernize-data/studio-data/TNT1001/APP2920/transformed-code/995/studio-workspace/softwaredev1601/src/TourManagement.Web/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 

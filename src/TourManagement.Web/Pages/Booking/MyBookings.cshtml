@@ -1,0 +1,52 @@
+@page
+@model TourManagement.Web.Pages.Booking.MyBookingsModel
+@{
+    ViewData["Title"] = "My Bookings";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">My Bookings</h2>
+
+    @if (!string.IsNullOrEmpty((string?)TempData["SuccessMessage"]))
+    {
+        <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+    }
+
+    @if (Model.Bookings != null && Model.Bookings.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Booking ID</th>
+                    <th>Tour Name</th>
+                    <th>Place</th>
+                    <th>Booking Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var booking in Model.Bookings)
+                {
+                    <tr>
+                        <td>@booking.BookingId</td>
+                        <td>@booking.TourName</td>
+                        <td>@booking.Place</td>
+                        <td>@booking.BookingDate.ToShortDateString()</td>
+                        <td>
+                            <a asp-page="/Tour/Details" asp-route-id="@booking.TourId" class="btn btn-sm btn-info">View Tour</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info">You have no bookings yet.</div>
+    }
+
+    <div class="mt-3">
+        <a asp-page="/Tour/Index" class="btn btn-primary">Book More Tours</a>
+        <a asp-page="/User/Profile" class="btn btn-secondary">Back to Profile</a>
+    </div>
+</div>

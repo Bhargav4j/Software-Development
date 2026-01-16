@@ -1,0 +1,65 @@
+@page
+@model TourManagement.Web.Pages.Tour.DetailsModel
+@{
+    ViewData["Title"] = "Tour Details";
+}
+
+<div class="container mt-5">
+    @if (Model.Tour != null)
+    {
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h3>@Model.Tour.TourName</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        @if (!string.IsNullOrEmpty(Model.Tour.PicturePath))
+                        {
+                            <img src="~/images/tours/@Model.Tour.PicturePath" class="img-fluid" alt="@Model.Tour.TourName" />
+                        }
+                        else
+                        {
+                            <div class="bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 300px;">
+                                <span>No Image Available</span>
+                            </div>
+                        }
+                    </div>
+                    <div class="col-md-6">
+                        <table class="table">
+                            <tr>
+                                <th>Place:</th>
+                                <td>@Model.Tour.Place</td>
+                            </tr>
+                            <tr>
+                                <th>Duration:</th>
+                                <td>@Model.Tour.Days days</td>
+                            </tr>
+                            <tr>
+                                <th>Price:</th>
+                                <td class="text-success"><strong>$@Model.Tour.Price</strong></td>
+                            </tr>
+                            <tr>
+                                <th>Locations:</th>
+                                <td>@Model.Tour.Locations</td>
+                            </tr>
+                        </table>
+                        <div class="mt-3">
+                            <h5>Tour Information:</h5>
+                            <p>@Model.Tour.TourInfo</p>
+                        </div>
+                        <div class="mt-3">
+                            <a asp-page="/Booking/Create" asp-route-tourId="@Model.Tour.TourId" class="btn btn-success">Book This Tour</a>
+                            <a asp-page="/Tour/Index" class="btn btn-secondary">Back to Tours</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning">Tour not found.</div>
+        <a asp-page="/Tour/Index" class="btn btn-primary">Back to Tours</a>
+    }
+</div>

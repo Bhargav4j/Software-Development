@@ -1,0 +1,50 @@
+@page
+@model TourManagement.Web.Pages.Admin.ToursModel
+@{
+    ViewData["Title"] = "Manage Tours";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Manage Tours</h2>
+
+    <div class="mb-3">
+        <a asp-page="/Admin/CreateTour" class="btn btn-success">Add New Tour</a>
+        <a asp-page="/Admin/Dashboard" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+
+    @if (Model.Tours != null && Model.Tours.Any())
+    {
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tour ID</th>
+                    <th>Tour Name</th>
+                    <th>Place</th>
+                    <th>Days</th>
+                    <th>Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var tour in Model.Tours)
+                {
+                    <tr>
+                        <td>@tour.TourId</td>
+                        <td>@tour.TourName</td>
+                        <td>@tour.Place</td>
+                        <td>@tour.Days</td>
+                        <td>$@tour.Price</td>
+                        <td>
+                            <a asp-page="/Admin/EditTour" asp-route-id="@tour.TourId" class="btn btn-sm btn-primary">Edit</a>
+                            <a asp-page="/Admin/DeleteTour" asp-route-id="@tour.TourId" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info">No tours found.</div>
+    }
+</div>
