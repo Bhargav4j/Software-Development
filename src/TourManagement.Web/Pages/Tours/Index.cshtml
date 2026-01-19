@@ -1,0 +1,72 @@
+@page
+@model TourManagement.Web.Pages.Tours.IndexModel
+@{
+    ViewData["Title"] = "Tours";
+}
+
+<h1>Available Tours</h1>
+
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <p>
+        <a asp-page="Create" class="btn btn-primary">Add New Tour</a>
+    </p>
+}
+
+<form method="get" class="mb-3">
+    <div class="row">
+        <div class="col-md-8">
+            <input type="text" name="searchTerm" value="@Model.SearchTerm" class="form-control" placeholder="Search tours..." />
+        </div>
+        <div class="col-md-4">
+            <button type="submit" class="btn btn-secondary">Search</button>
+            <a asp-page="Index" class="btn btn-outline-secondary">Clear</a>
+        </div>
+    </div>
+</form>
+
+@if (Model.Tours != null && Model.Tours.Any())
+{
+    <div class="row">
+        @foreach (var tour in Model.Tours)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    @if (!string.IsNullOrEmpty(tour.PicturePath))
+                    {
+                        <img src="/uploads/tour-pics/@tour.PicturePath" class="card-img-top" alt="@tour.TourName" style="height: 200px; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <div class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center" style="height: 200px;">
+                            <span>No Image</span>
+                        </div>
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">@tour.TourName</h5>
+                        <p class="card-text">
+                            <strong>Place:</strong> @tour.Place<br />
+                            <strong>Duration:</strong> @tour.Days days<br />
+                            <strong>Price:</strong> $@tour.Price<br />
+                            <strong>Locations:</strong> @tour.Locations
+                        </p>
+                        <p class="card-text">@tour.TourInfo</p>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-page="Details" asp-route-id="@tour.Id" class="btn btn-info btn-sm">Details</a>
+                        <a asp-page="/Bookings/Create" asp-route-tourId="@tour.Id" class="btn btn-success btn-sm">Book Now</a>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+                            <a asp-page="Edit" asp-route-id="@tour.Id" class="btn btn-warning btn-sm">Edit</a>
+                            <a asp-page="Delete" asp-route-id="@tour.Id" class="btn btn-danger btn-sm">Delete</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+else
+{
+    <p class="alert alert-info">No tours found.</p>
+}
