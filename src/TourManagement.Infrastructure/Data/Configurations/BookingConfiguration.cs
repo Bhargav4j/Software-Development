@@ -17,7 +17,7 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
 
         builder.Property(b => b.BookingId)
             .HasColumnName("TOUR_ID")
-            .UseIdentityColumn(1, 1);
+            .UseIdentityAlwaysColumn();
 
         builder.Property(b => b.TourId)
             .IsRequired();
@@ -45,11 +45,11 @@ public class BookingConfiguration : IEntityTypeConfiguration<Booking>
 
         builder.Property(b => b.BookingDate)
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(b => b.CreatedDate)
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(b => b.IsActive)
             .IsRequired()

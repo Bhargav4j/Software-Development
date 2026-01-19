@@ -17,7 +17,7 @@ public class TourConfiguration : IEntityTypeConfiguration<Tour>
 
         builder.Property(t => t.TourId)
             .HasColumnName("TOUR_ID")
-            .UseIdentityColumn(1, 1);
+            .UseIdentityAlwaysColumn();
 
         builder.Property(t => t.TourName)
             .IsRequired()
@@ -54,7 +54,7 @@ public class TourConfiguration : IEntityTypeConfiguration<Tour>
 
         builder.Property(t => t.CreatedDate)
             .IsRequired()
-            .HasDefaultValueSql("GETUTCDATE()");
+            .HasDefaultValueSql("NOW()");
 
         builder.Property(t => t.IsActive)
             .IsRequired()

@@ -21,6 +21,20 @@ public class TourManagementDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
 
+        // Set default schema for PostgreSQL
+        modelBuilder.HasDefaultSchema("public");
+
+        // Configure PostgreSQL extensions if needed
+        modelBuilder.HasPostgresExtension("uuid-ossp");
+
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(TourManagementDbContext).Assembly);
+    }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+
+        // Enable legacy timestamp behavior for PostgreSQL compatibility
+        AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
     }
 }

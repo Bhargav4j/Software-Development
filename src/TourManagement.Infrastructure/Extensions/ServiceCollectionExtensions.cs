@@ -17,13 +17,14 @@ public static class ServiceCollectionExtensions
         var connectionString = configuration.GetConnectionString("DefaultConnection");
 
         services.AddDbContext<TourManagementDbContext>(options =>
-            options.UseSqlServer(connectionString, sqlOptions =>
+            options.UseNpgsql(connectionString, npgsqlOptions =>
             {
-                sqlOptions.EnableRetryOnFailure(
+                npgsqlOptions.EnableRetryOnFailure(
                     maxRetryCount: 5,
-                    maxRetryDelay: TimeSpan.FromSeconds(30),
-                    errorNumbersToAdd: null);
-            }));
+                    maxRetryDelay: TimeSpan.FromSeconds(30));
+                npgsqlOptions.MigrationsHistoryTable("__ef_migrations_history", "public");
+            })
+            .UseSnakeCaseNamingConvention());
 
         services.AddScoped<IUserInfoRepository, UserInfoRepository>();
         services.AddScoped<ITourRepository, TourRepository>();
