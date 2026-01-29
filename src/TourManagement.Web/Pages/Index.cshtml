@@ -1,0 +1,50 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Tour Management</h1>
+    <p>Discover amazing tour packages and book your next adventure!</p>
+    <p>
+        <a asp-page="/Tours/Index" class="btn btn-primary btn-lg">Browse Tours</a>
+    </p>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Explore Tours</h5>
+                <p class="card-text">Browse through our collection of amazing tour packages.</p>
+                <a asp-page="/Tours/Index" class="btn btn-primary">View Tours</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Book Your Trip</h5>
+                <p class="card-text">Easy booking process for your dream vacation.</p>
+                <a asp-page="/Tours/Index" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Manage Bookings</h5>
+                <p class="card-text">View and manage all your tour bookings.</p>
+                @if (Model.HttpContext.Session.GetInt32("UserId") != null)
+                {
+                    <a asp-page="/Bookings/Index" class="btn btn-primary">My Bookings</a>
+                }
+                else
+                {
+                    <a asp-page="/Account/Login" class="btn btn-primary">Login</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
